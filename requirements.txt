@@ -1,1 +1,5 @@
 Django==2.1.5
+djangorestframework==3.9.0
+django-extensions==2.1.4
+django-filter==2.0.0
+dropbox==9.3.0
