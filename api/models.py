@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Shamba(TimeStampedModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    owner = models.ForeignKey(User, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     jina = models.TextField(blank=True, db_index=True)
     jina_fupi = models.TextField(blank=True, db_index=True)
@@ -41,9 +41,9 @@ INITIAL_STATUS = (
 class Myama(TimeStampedModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
-    shamba = models.ForeignKey(Shamba)
+    shamba = models.ForeignKey(Shamba, on_delete=models.CASCADE)
 
-    breeder = models.ForeignKey(Shamba, related_name="breeder")
+    breeder = models.ForeignKey(Shamba, on_delete=models.DO_NOTHING, related_name="breeder")
 
     jinsia = models.CharField(max_length=5, choices=JINSIA)
     tag = models.CharField(max_length=255, blank=True, db_index=True)
@@ -75,8 +75,8 @@ AINA_YA_NGOMBE = (
 class Ngombe(Myama):
     breed = models.CharField(max_length=25, choices=AINA_YA_NGOMBE)
 
-    baba = models.OneToOneField("Ngombe", related_name="ngombe_baba", null=True)
-    mama = models.OneToOneField("Ngombe", related_name="ngombe_mama", null=True)
+    baba = models.OneToOneField("Ngombe", on_delete=models.DO_NOTHING, related_name="ngombe_baba", null=True)
+    mama = models.OneToOneField("Ngombe", on_delete=models.DO_NOTHING, related_name="ngombe_mama", null=True)
 
 
 AINA_YA_MBUZI = (("BOER", "boer"), ("OTHER", "Other"))
@@ -85,8 +85,8 @@ AINA_YA_MBUZI = (("BOER", "boer"), ("OTHER", "Other"))
 class Mbuzi(Myama):
     breed = models.CharField(max_length=25, choices=AINA_YA_MBUZI)
 
-    baba = models.OneToOneField("Mbuzi", related_name="mbuzi_baba", null=True)
-    mama = models.OneToOneField("Mbuzi", related_name="mbuzi_mama", null=True)
+    baba = models.OneToOneField("Mbuzi", on_delete=models.DO_NOTHING, related_name="mbuzi_baba", null=True)
+    mama = models.OneToOneField("Mbuzi", on_delete=models.DO_NOTHING, related_name="mbuzi_mama", null=True)
 
 
 AINA_YA_KONDO = (("BHP", "Black Head Persian"), ("OTHER", "Other"))
@@ -95,5 +95,5 @@ AINA_YA_KONDO = (("BHP", "Black Head Persian"), ("OTHER", "Other"))
 class Kondo(Myama):
     breed = models.CharField(max_length=25, choices=AINA_YA_KONDO)
 
-    baba = models.OneToOneField("Kondo", related_name="kondo_baba", null=True)
-    mama = models.OneToOneField("Kondo", related_name="kondo_mama", null=True)
+    baba = models.OneToOneField("Kondo", on_delete=models.DO_NOTHING, related_name="kondo_baba", null=True)
+    mama = models.OneToOneField("Kondo", on_delete=models.DO_NOTHING, related_name="kondo_mama", null=True)
