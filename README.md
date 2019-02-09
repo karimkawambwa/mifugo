@@ -21,7 +21,11 @@ Currently using sqlite, will definetly be switching db soon. For now its okay.
 You can use my sample archive data to start immidiately playing aroud with the stuff.
 These are real animals tht I personally went and tagged and also identified parents and children by observing them nursing.
 
+### Virtual Evironment
+
 - Clone this repo
+- Create a vitual environment `virtualenv venv`
+- Activate the virtual environment `source venv/bin/activate`
 - Install dependencies using `npm` and `pip`
 - Migrate the database `python manage.py migrate`
 
