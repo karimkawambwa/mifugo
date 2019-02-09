@@ -7,6 +7,4 @@ const App = () => (
   <DataProvider endpoint="api/ngombe/" render={data => <Table data={data} />} />
 );
 
-const wrapper = document.getElementById("app");
-
-wrapper ? ReactDOM.render(<App />, wrapper) : null;
+export default App
