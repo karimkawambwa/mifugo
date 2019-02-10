@@ -3,7 +3,7 @@ import csv
 from django.core.management import BaseCommand
 
 from django.contrib.auth.models import User
-from api.models import Kondo, Mbuzi, Ngombe, Shamba
+from ...models import Kondo, Mbuzi, Ngombe, Shamba
 
 
 class Command(BaseCommand):

@@ -41,9 +41,8 @@ INSTALLED_APPS = [
     # DRF
     'rest_framework',
     # Mifugo
-    'mifugo',
+    'mifugo.mifugo',
     'frontend',
-    'api'
 ]
 
 MIDDLEWARE = [

@@ -13,7 +13,7 @@ class ShambaAdmin(admin.ModelAdmin):
 @admin.register(Ngombe)
 class NgombeAdmin(admin.ModelAdmin):
     search_fields = ["breeder", "breed", "jinsia"]
-    list_display = ["tag", "shamba", "breeder", "jinsia", "breed"]
+    list_display = ["tag", "current_status", "shamba", "breeder", "jinsia", "breed"]
     list_filter = ["shamba", "jinsia", "breed", "breeder"]
 
 

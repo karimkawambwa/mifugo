@@ -19,7 +19,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url(r'^api/', include('api.urls')),
+    url(r'^api/', include('mifugo.mifugo.urls')),
     url(r'^admin/', admin.site.urls),
     url('', include('frontend.urls')),
 ]
